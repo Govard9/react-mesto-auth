@@ -1,4 +1,5 @@
 import {useEffect, useState} from "react";
+import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import Header from "./Header";
 import Main from "./Main";
 import Footer from "./Footer";
@@ -23,6 +24,8 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
 
   const [cards, setCards] = useState([]);
+
+  const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
     api.getInitialCards().then(res => {
@@ -122,6 +125,13 @@ function App() {
 
   return (
       <CurrentUserContext.Provider value={currentUser}>
+
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={loggedIn ? <Navigate to='/' replace /> : <Navigate to='/sign-in' replace />}/>
+          </Routes>
+        </BrowserRouter>
+
         <Header/>
         <Main
           onEditProfile={handleEditProfileClick}
