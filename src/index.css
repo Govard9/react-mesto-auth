@@ -10,6 +10,8 @@
 /* Header*/
 @import url(./blocks/header/header.css);
 @import url(./blocks/header/__logo/header__logo.css);
+@import url(./blocks/header/__link/header__link.css);
+@import url(./blocks/header/_space-between/header_space-between.css);
 
 /* Content */
 @import url(./blocks/content/content.css);
@@ -64,3 +66,10 @@
 @import url(./blocks/popup/__main-container/_bg-transperent/popup__main-container_bg-transperent.css);
 @import url(./blocks/popup/__error/_visible/popup__error_visible.css);
 @import url(./blocks/popup/__section/popup__section.css);
+
+/* Auth */
+@import url(./blocks/auth/auth.css);
+@import url(./blocks/auth/__title/auth__title.css);
+@import url(./blocks/auth/__form/auth__form.css);
+@import url(./blocks/auth/__input/auth__input.css);
+@import url(./blocks/auth/__button/auth__button.css);
