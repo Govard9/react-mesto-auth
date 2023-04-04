@@ -3,6 +3,7 @@ import {Route, Routes, Navigate} from 'react-router-dom';
 import Login from "./Login";
 import HomePage from "./HomePage/HomePage";
 import Register from "./Register";
+import ProtectedRoute from "./ProtectedRoute";
 
 function App() {
 
@@ -11,12 +12,10 @@ function App() {
   return (
     <>
       <Routes>
-        <Route path="/" element={loggedIn ? <Navigate to='/' replace/> : <Navigate to='/sign-in' replace/>}/>
-        <Route path="/sign-in" element={<Login/>}/>
+        <Route path='/' element={<ProtectedRoute element={HomePage} loggedIn={loggedIn}/>}/>
+        <Route path="/sign-in" element={<Login/>} />
         <Route path="/sign-up" element={<Register/>}/>
       </Routes>
-
-      {loggedIn && <HomePage/>}
     </>
   )
     ;

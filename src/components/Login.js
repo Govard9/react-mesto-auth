@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import InfoTooltip from "./InfoTooltip";
 
 function Login(props) {
   return (
@@ -34,6 +35,7 @@ function Login(props) {
             <button type="submit" className="auth__button">Войти</button>
           </form>
         </div>
+        <InfoTooltip />
       </main>
     </>
   );

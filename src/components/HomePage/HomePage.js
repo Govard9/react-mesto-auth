@@ -9,14 +9,17 @@ import ImagePopup from "../ImagePopup";
 import api from "../../utils/api";
 import {CurrentUserContext} from "../../contexts/CurrentUserContext";
 import Header from "../Header";
+import InfoTooltip from "../InfoTooltip";
 
-function HomePage(props) {
+function HomePage() {
 
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
 
   const [isAddPlacePopupOpen, setIsAddPlacePopupOpen] = useState(false);
 
   const [isEditAvatarPopupOpen, setIsEditAvatarPopupOpen] = useState(false);
+
+  const [isEditTooltipPopupOpen, setIsEditTooltipPopupOpen] = useState(false);
 
   const [selectedCard, setSelectedCard] = useState({});
 
@@ -160,6 +163,13 @@ function HomePage(props) {
         onClose={closeAllPopups}
       >
       </PopupWithForm>
+
+      <InfoTooltip
+        isOpen={isEditTooltipPopupOpen}
+        onClose={closeAllPopups}
+      >
+
+      </InfoTooltip>
 
       <ImagePopup
         card={selectedCard}
