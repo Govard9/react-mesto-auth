@@ -1,7 +1,30 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
+import InfoTooltip from "./InfoTooltip";
 
-function Register(props) {
+function Register({ onRegister, onClose, registerSuccess, popupTooltipOpen, handleCloseRegister }) {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (evt) => {
+    setEmail(evt.target.value)
+  }
+
+  const handlePassChange = (evt) => {
+    setPassword(evt.target.value)
+  }
+
+  const registerDataInput = (evt) => {
+    evt.preventDefault();
+    onRegister({
+      email: email,
+      password: password
+    })
+    setEmail('');
+    setPassword('');
+  }
+
   return (
     <>
       <header className="header header_space-between">
@@ -12,23 +35,27 @@ function Register(props) {
       <main className="content">
         <div className="auth">
           <h2 className="auth__title">Регистрация</h2>
-          <form className="auth__form">
+          <form onSubmit={registerDataInput} className="auth__form">
             <input
+              onChange={handleEmailChange}
               type="email"
               name="mail"
               placeholder="Email"
               minLength="5"
               maxLength="254"
               className="auth__input"
+              value={email}
               required
             />
             <input
+              onChange={handlePassChange}
               type="password"
               name="pass"
               placeholder="Пароль"
               minLength="8"
               maxLength="50"
               className="auth__input"
+              value={password}
               required
             />
             <button type="submit" className="auth__button">Зарегистрироваться</button>
@@ -38,6 +65,11 @@ function Register(props) {
             </p>
           </form>
         </div>
+        <InfoTooltip popupTooltipOpen={popupTooltipOpen}
+                     onClose={onClose}
+                     registerSuccess={registerSuccess}
+                     handleCloseRegister={handleCloseRegister}
+        />
       </main>
     </>
   );

@@ -1,8 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import InfoTooltip from "./InfoTooltip";
 
 function Login(props) {
+  const { onAuthorization, popupTooltipOpen, onClose, authorizationSuccess, handleCloseAuthorization } = props;
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleEmailChange = (evt) => {
+    setEmail(evt.target.value)
+  }
+
+  const handlePassChange = (evt) => {
+    setPassword(evt.target.value)
+  }
+
+  const authDataInput = (evt) => {
+    evt.preventDefault();
+    onAuthorization({
+      email: email,
+      password: password
+    })
+    setEmail('');
+    setPassword('');
+  }
+
   return (
     <>
       <header className="header header_space-between">
@@ -13,29 +36,38 @@ function Login(props) {
       <main className="content">
         <div className="auth">
           <h2 className="auth__title">Вход</h2>
-          <form className="auth__form">
+          <form className="auth__form" onSubmit={authDataInput}>
             <input
+              onChange={handleEmailChange}
               type="email"
               name="mail"
               placeholder="Email"
               minLength="5"
               maxLength="254"
               className="auth__input"
+              value={email}
               required
             />
             <input
+              onChange={handlePassChange}
               type="password"
               name="pass"
               placeholder="Пароль"
               minLength="8"
               maxLength="50"
               className="auth__input"
+              value={password}
               required
             />
             <button type="submit" className="auth__button">Войти</button>
           </form>
         </div>
-        <InfoTooltip />
+        <InfoTooltip
+          popupTooltipOpen={popupTooltipOpen}
+          onClose={onClose}
+          authorizationSuccess={authorizationSuccess}
+          handleCloseAuthorization={handleCloseAuthorization}
+        />
       </main>
     </>
   );

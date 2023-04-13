@@ -4,7 +4,7 @@ export class Api {
     this._token = token;
   }
 
-  _checkResponse(res) {
+  checkResponse(res) {
     if (res.ok) {
       return res.json();
     }
@@ -18,7 +18,7 @@ export class Api {
         authorization: this._token,
       },
     })
-      .then(this._checkResponse);
+      .then(this.checkResponse);
   }
 
   updateEditProfile(data) {
@@ -33,7 +33,7 @@ export class Api {
         about: data.about,
       }),
     })
-      .then(this._checkResponse)
+      .then(this.checkResponse)
       .then((data) => {
         return data;
       });
@@ -45,7 +45,7 @@ export class Api {
         authorization: this._token,
       },
     })
-      .then(this._checkResponse)
+      .then(this.checkResponse)
       .then((result) => {
         return result;
       });
@@ -63,7 +63,7 @@ export class Api {
         link: data.link,
       }),
     })
-      .then(this._checkResponse)
+      .then(this.checkResponse)
       .then((data) => {
         return data;
       });
@@ -76,7 +76,7 @@ export class Api {
         authorization: this._token,
       },
     })
-      .then(this._checkResponse)
+      .then(this.checkResponse)
       .then((data) => {
         return data;
       });
@@ -90,7 +90,7 @@ export class Api {
         'Content-Type': 'application/json',
       },
     })
-      .then(this._checkResponse)
+      .then(this.checkResponse)
       .then((data) => {
         return data;
       });
@@ -103,7 +103,7 @@ export class Api {
         authorization: this._token,
       },
     })
-      .then(this._checkResponse)
+      .then(this.checkResponse)
       .then((data) => {
         return data;
       });
@@ -120,7 +120,7 @@ export class Api {
         avatar: avatar.avatar,
       }),
     })
-      .then(this._checkResponse)
+      .then(this.checkResponse)
       .then((data) => {
         return data;
       });
