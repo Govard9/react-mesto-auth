@@ -48,3 +48,9 @@
   opacity: 1;
   transition: opacity .3s ease;
 }
+
+@media screen and (max-width: 710px) {
+  .profile__block-avatar {
+    margin: 0;
+  }
+}

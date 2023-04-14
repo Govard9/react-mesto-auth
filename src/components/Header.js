@@ -9,6 +9,9 @@ function Header({emailData, signOut}) {
         className="header__logo"
       />
       <nav className="header__nav-menu">
+        <div className="header__burger">
+          <div className="header__burger-menu"></div>
+        </div>
         <ul className="header__links-menu">
           <li className="header__link-menu">{emailData}</li>
           <li className="header__link-menu">

@@ -16,6 +16,8 @@
 @import url(./blocks/header/__links-menu/header__links-menu.css);
 @import url(./blocks/header/__link-menu/header__link-menu.css);
 @import url(./blocks/header/__link-out/header__link-out.css);
+@import url(./blocks/header/__burger/header__burger.css);
+@import url(./blocks/header/__burger-menu/header__burger-menu.css);
 
 /* Content */
 @import url(./blocks/content/content.css);

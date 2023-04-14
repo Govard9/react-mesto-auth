@@ -13,3 +13,9 @@
     opacity: 0.85;
     transition: opacity 1s ease;
 }
+
+@media screen and (max-width: 376px) {
+    .auth__button {
+        max-width: 300px;
+    }
+}
