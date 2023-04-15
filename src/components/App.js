@@ -14,6 +14,7 @@ import ImagePopup from "./ImagePopup";
 import {CurrentUserContext} from "../contexts/CurrentUserContext";
 import api from "../utils/api";
 import auth from "../utils/auth";
+import InfoTooltip from "./InfoTooltip";
 
 function App() {
   const [isEditProfilePopupOpen, setIsEditProfilePopupOpen] = useState(false);
@@ -219,19 +220,21 @@ function App() {
           element={Login}
           loggedIn={loggedIn}
           onAuthorization={onAuthorization}
-          handleCloseAuthorization={handleCloseAuthorization}
-          popupTooltipOpen={popupTooltipOpen}
-          onClose={closeAllPopups}
-          authorizationSuccess={authorizationSuccess}
         />}/>
         <Route path="/sign-up" element={<Register
           onRegister={onRegister}
-          popupTooltipOpen={popupTooltipOpen}
-          handleCloseRegister={handleCloseRegister}
-          onClose={closeAllPopups}
-          registerSuccess={registerSuccess}
         />}/>
       </Routes>
+
+      <InfoTooltip
+          popupTooltipOpen={popupTooltipOpen}
+          onClose={closeAllPopups}
+          authorizationSuccess={authorizationSuccess}
+          handleCloseAuthorization={handleCloseAuthorization}
+          registerSuccess={registerSuccess}
+          handleCloseRegister={handleCloseRegister}
+      />
+
       {loggedIn &&
         <CurrentUserContext.Provider value={currentUser}>
           <Header emailData={emailData} signOut={signOut} />
@@ -269,8 +272,7 @@ function App() {
             title={'Вы уверены?'}
             name={'delete-card'}
             onClose={closeAllPopups}
-          >
-          </PopupWithForm>
+          />
 
           <ImagePopup
             card={selectedCard}

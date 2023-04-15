@@ -1,16 +1,18 @@
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import PopupWithForm from "./PopupWithForm";
 
 function AddPlacePopup({isOpen, onAddPlace, onClose}) {
 
-  const refTitle = useRef();
+  const [title, setTitle] = useState('');
+  const [link, setLink] = useState('');
 
-  const refLink = useRef();
+  const handleTitleChange = (evt) => {
+    setTitle(evt.target.value)
+  }
 
-  useEffect(() => {
-      refTitle.current.value = '';
-      refLink.current.value = '';
-  }, [isOpen])
+  const handleLinkChange = (evt) => {
+    setLink(evt.target.value)
+  }
 
   function handleSubmit(e) {
     // Запрещаем браузеру переходить по адресу формы
@@ -18,8 +20,8 @@ function AddPlacePopup({isOpen, onAddPlace, onClose}) {
 
     // Передаём значения управляемых компонентов во внешний обработчик
     onAddPlace({
-      name: refTitle.current.value,
-      link: refLink.current.value,
+      name: title,
+      link: link,
     });
   }
 
@@ -41,7 +43,8 @@ function AddPlacePopup({isOpen, onAddPlace, onClose}) {
         className="popup__input popup__input_data_title"
         required
         id="title"
-        ref={refTitle}
+        onChange={handleTitleChange}
+        value={title}
       />
       <span className="popup__error title-error"></span>
       <input
@@ -51,7 +54,8 @@ function AddPlacePopup({isOpen, onAddPlace, onClose}) {
         required
         className="popup__input popup__input_data_link-img"
         id="link"
-        ref={refLink}
+        onChange={handleLinkChange}
+        value={link}
       />
       <span className="popup__error link-error"></span>
     </PopupWithForm>

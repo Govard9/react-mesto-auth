@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import InfoTooltip from "./InfoTooltip";
+import logo from "../images/logo/logo.svg";
 
 function Login(props) {
-  const { onAuthorization, popupTooltipOpen, onClose, authorizationSuccess, handleCloseAuthorization } = props;
+  const { onAuthorization } = props;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -29,7 +30,7 @@ function Login(props) {
   return (
     <>
       <header className="header header_space-between">
-        <img src="/static/media/logo.e1792cd1bf55c68d1538deb5b248d425.svg"
+        <img src={logo}
              alt=" Логотип сайта mesto." className="header__logo"/>
         <Link to="/sign-up" className="header__link">Регистрация</Link>
       </header>
@@ -62,12 +63,7 @@ function Login(props) {
             <button type="submit" className="auth__button">Войти</button>
           </form>
         </div>
-        <InfoTooltip
-          popupTooltipOpen={popupTooltipOpen}
-          onClose={onClose}
-          authorizationSuccess={authorizationSuccess}
-          handleCloseAuthorization={handleCloseAuthorization}
-        />
+        <InfoTooltip/>
       </main>
     </>
   );
