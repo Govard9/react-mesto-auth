@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import InfoTooltip from "./InfoTooltip";
+import logo from "../images/logo/logo.svg";
 
 function Login(props) {
   const { onAuthorization, popupTooltipOpen, onClose, authorizationSuccess, handleCloseAuthorization } = props;
@@ -29,7 +30,7 @@ function Login(props) {
   return (
     <>
       <header className="header header_space-between">
-        <img src="/static/media/logo.e1792cd1bf55c68d1538deb5b248d425.svg"
+        <img src={logo}
              alt=" Логотип сайта mesto." className="header__logo"/>
         <Link to="/sign-up" className="header__link">Регистрация</Link>
       </header>

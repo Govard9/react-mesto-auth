@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from "react-router-dom";
 import InfoTooltip from "./InfoTooltip";
+import logo from "../images/logo/logo.svg";
 
 function Register({ onRegister, onClose, registerSuccess, popupTooltipOpen, handleCloseRegister }) {
 
@@ -28,7 +29,7 @@ function Register({ onRegister, onClose, registerSuccess, popupTooltipOpen, hand
   return (
     <>
       <header className="header header_space-between">
-        <img src="/static/media/logo.e1792cd1bf55c68d1538deb5b248d425.svg"
+        <img src={logo}
              alt=" Логотип сайта mesto." className="header__logo"/>
         <Link to="/sign-in" className="header__link">Войти</Link>
       </header>
