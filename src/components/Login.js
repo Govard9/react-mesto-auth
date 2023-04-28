@@ -4,7 +4,7 @@ import InfoTooltip from "./InfoTooltip";
 import logo from "../images/logo/logo.svg";
 
 function Login(props) {
-  const { onAuthorization, popupTooltipOpen, onClose, authorizationSuccess, handleCloseAuthorization } = props;
+  const { onAuthorization } = props;
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -63,12 +63,7 @@ function Login(props) {
             <button type="submit" className="auth__button">Войти</button>
           </form>
         </div>
-        <InfoTooltip
-          popupTooltipOpen={popupTooltipOpen}
-          onClose={onClose}
-          authorizationSuccess={authorizationSuccess}
-          handleCloseAuthorization={handleCloseAuthorization}
-        />
+        <InfoTooltip/>
       </main>
     </>
   );

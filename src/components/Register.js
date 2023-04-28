@@ -3,7 +3,7 @@ import {Link} from "react-router-dom";
 import InfoTooltip from "./InfoTooltip";
 import logo from "../images/logo/logo.svg";
 
-function Register({ onRegister, onClose, registerSuccess, popupTooltipOpen, handleCloseRegister }) {
+function Register({ onRegister }) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -66,11 +66,7 @@ function Register({ onRegister, onClose, registerSuccess, popupTooltipOpen, hand
             </p>
           </form>
         </div>
-        <InfoTooltip popupTooltipOpen={popupTooltipOpen}
-                     onClose={onClose}
-                     registerSuccess={registerSuccess}
-                     handleCloseRegister={handleCloseRegister}
-        />
+        <InfoTooltip />
       </main>
     </>
   );
